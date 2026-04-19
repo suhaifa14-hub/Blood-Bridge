@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Blood Bridge</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'donors/css/page1.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+    
+    <nav class="navbar">
+         <a href="/" class="logo">Blood<span>Bridge</span> 🩸</a>
+        <ul class="nav-links">
+            <li><a href="awareness">Why Donate?</a></li>
+            <li><a href="register">Donate</a></li>
+            <li><a href="request">Find Blood</a></li>
+            <li><a href="userlogin">My Account</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <span class="hero-icon">🩸</span>
+        <h1>Give the Gift of <span>Life</span></h1>
+        <p>Every 2 seconds someone needs blood. One donation can save up to 3 lives. Be someone's hero today.</p>
+    </section>
+
+    
+    <div class="cards-section">
+        <a href="register" class="card">
+            <span class="card-icon">💉</span>
+            <h3>Register to Donate</h3>
+            <p>Sign up as a blood donor and help save lives in your community.</p>
+        </a>
+        <a href="request" class="card">
+            <span class="card-icon">🔍</span>
+            <h3>Search for Blood</h3>
+            <p>Looking for a specific blood type? Find donors near you quickly.</p>
+        </a>
+        <a href="userlogin" class="card">
+            <span class="card-icon">👤</span>
+            <h3> My Info</h3>
+            <p>Log in to your donor profile and view availability status.</p>
+        </a>
+        <a href="awareness" class="card">
+            <span class="card-icon">📖</span>
+            <h3>Why Donate?</h3>
+            <p>Learn about the importance of blood donation and who it helps.</p>
+        </a>
+    </div>
+
+   
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Blood Bridge &nbsp;·&nbsp; <a href="awareness">Why Donate?</a> &nbsp;·&nbsp; <a href="register">Donate Now</a></p>
+    </footer>
+
+</body>
+</html> 

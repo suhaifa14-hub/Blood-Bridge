@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7cbcb;
+  margin: 10;
+  padding: 0;
+}
+
+.login-container {
+  max-width:50%;
+  background: #fff;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(14, 197, 154, 0.1);
+
+
+}
+.form-group {
+  max-width:50%;
+  background: #fff;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(14, 197, 154, 0.1);
+
+
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #f65a5a;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ee8b8b;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 20px;
+  width: 90%;
+  padding: 10px;
+  background: #f60c082a;
+  color: #500505;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  
+}
+
+button:hover {
+  background: #ea0d0d;
+
+}
+
+
+
+
+
+

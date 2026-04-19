@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Register Form</title>
+  
+  <link rel="stylesheet" href="{% static 'donors/css/page2.css' %}?v=2">
+</head>
+<body>
+   
+    <nav class="navbar">
+         
+        <ul class="nav-links">
+             <li><a href="/">Home</a></li>
+            <li><a href="awareness">Why Donate?</a></li>
+            <li><a href="register">Donate</a></li>
+            <li><a href="request">Find Blood</a></li>
+            <li><a href="userlogin">My Account</a></li>
+        </ul>
+    </nav>
+
+  <div class="container">
+    <h2>Donor Registration Form</h2>
+
+    <form action="{% url 'Registrationform'%}" method="POST">
+      {% csrf_token %}
+       
+       {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Please correct the errors below:</strong>
+            <ul>
+                {% for field in form %}
+                    {% if field.errors %}
+                        <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+                    {% endif %}
+                {% endfor %}
+                
+            </ul>
+        </div>
+    {% endif %}
+           
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Choose a username" required>
+      
+      
+      <label for="password1">Password</label>
+      <input type="password" id="password1" name="password1" placeholder="Enter password" required>
+      
+      
+      <label for="password2">Confirm Password</label>
+      <input type="password" id="password2" name="password2" placeholder="Confirm password" required>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="fullname" placeholder="Enter your full name" required>
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="18" max="65" placeholder="Enter your age" required>
+      <label for="weight">Weight</label>
+      <input type="number" id="weight" name="weight" min="50"  placeholder="Enter your weight in kilograms (KG)" required>
+      
+      
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" >
+
+      
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      
+
+
+      
+      <label for="blood">Blood Group</label>
+      <select id="blood" name="bldgrp" required>
+        <option value=""> Select Blood Group </option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+      </select>
+
+     
+<label>Current Address</label>
+
+
+<select id="current-division" onchange="loadCurrentDistricts()" name="division" required>
+  <option value=""> Select Division </option>
+  <option value="dhaka">Dhaka</option>
+  <option value="chattogram">Chattogram</option>
+  <option value="rajshahi">Rajshahi</option>
+  <option value="khulna">Khulna</option>
+  <option value="barishal">Barishal</option>
+  <option value="sylhet">Sylhet</option>
+  <option value="rangpur">Rangpur</option>
+  <option value="mymensingh">Mymensingh</option>
+</select>
+
+
+<select id="current-district" name="district" required>
+  <option value=""> Select District </option>
+</select>
+<label for="address">Present Address</label>
+<input type="text" id="address" name="address" placeholder="Enter your Present Address : " required >
+<label for="h_address">Nearest hospital's name and location : </label>
+<input type="text" id="h_address" name="h_address" placeholder="Enter your Nearest Hospital's name and address  : " required >
+
+      
+<!-- Did you donate before -->
+<label>Did you donate blood before?</label>
+
+<div class="radio-group" >
+  <label>
+    <input type="radio" name="donated_before" value="yes" required onclick="toggleDate(true)">
+    Yes
+  </label>
+
+  <label>
+    <input type="radio" name="donated_before" value="no" required onclick="toggleDate(false)">
+    No
+  </label>
+</div>
+
+<br><br>
+
+<!-- Donation Date (Initially Hidden) -->
+<div id="dateField" style="display:none;">
+  <label for="donation_date">Last Blood Donation Date</label>
+  <input type="date" id="donation_date" name="donation_date" required>
+</div>      
+      
+      <!-- Health Update -->
+      <label >Health Update (Select all that apply):</label>
+<div class="health-checkboxes">
+  <label><input type="checkbox" name="hiv" value="hiv"> HIV (Currently effected or has a history)</label>
+  <label><input type="checkbox" name="hep" value="hep"> Hepatitis(B/C) (Currently effected or has a history)</label>
+  <label><input type="checkbox" name="hypertension" value="hypertension"> Hypertension (High BP)</label>
+ 
+  <label><input type="checkbox" name="no_disease" value="no_disease"> None</label>
+</div>
+
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+    <footer>
+        <p>© 2026 Blood Bridge &nbsp;·&nbsp; <a href="awareness">Why Donate?</a> &nbsp;·&nbsp; <a href="register">Donate Now</a></p>
+    </footer>
+<script src="{%static 'donors/css/page2.js'%}?v=2">
+  
+</script>
+</body>
+</html>

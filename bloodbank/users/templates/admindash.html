@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'users/css/admindash.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Admin Dashboard - Welcome {{ user.username }}</h2>
+            <a href="{% url 'UserLogout' %}">Logout</a>
+            
+            
+        </div>
+         {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+         {% endif %}
+        
+        <div class="data-cards">
+            <div class="card">
+                <h3>Total Donors</h3>
+                <p>{{ totaldonors }}</p>
+            </div>
+            <div class="card">
+                <h3>Total Requests</h3>
+                 <p><a href="{% url 'SearchRequest' %}">{{ totalrequest }}</a></p>
+            </div>
+            <div class="card">
+                <h3>Blood Groups</h3>
+                <p>{{ totalbldgrp }}</p>
+            </div>
+            
+        </div>
+        
+        <div class="donors-list">
+            <h3>All Donors</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Blood Group</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Location</th>
+                        <th>Present Address</th>
+                        <th>Nearest Hospital</th>
+                        <th>Medical History </th>
+                        
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donor in all_donors %}
+                    <tr>
+                        <td>{{ donor.fullname }}</td>
+                        <td>{{ donor.bldgrp }}</td>
+                        <td>{{ donor.phone }}</td>
+                        <td>{{ donor.email }}</td>
+                        <td>{{ donor.division }}, {{donor.district}}</td>
+                        <td>{{ donor.address }}</td>
+                        <td>{{ donor.h_address }}</td>
+                        <td>
+                            
+                          
+                            {% if donor.hypertension %}<span class="condition-tag">Hypertension</span>
+                            {%else%}
+                            No medical-conditions specified
+                            {%endif%}
+                            
+                           
+                    
+
+
+                        </td>
+                        <td>
+                            
+                         <a href="{% url 'DeleteDonor' donor.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this donor?')">Delete</a>
+        
+
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>

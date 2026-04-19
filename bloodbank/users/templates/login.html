@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Blood Donation</title>
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}?v=2">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+        <form method="POST" action="{% url 'UserLogin' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Login as:</label>
+                <select name="user_type" required>
+                    <option value="donor">Donor</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+        
+        <p>Don't have an account? <a href="{% url 'Registrationform' %}">Register as Donor</a></p>
+    </div>
+    
+</body>
+</html>
+

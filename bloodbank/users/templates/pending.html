@@ -1,0 +1,68 @@
+ {%load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    
+    <title>Pending Requests</title>
+    <link rel="stylesheet" href="{% static 'users/css/pending.css' %}">
+ </head>
+ <body>
+   <div class="request-list">
+            <h3 style="margin-bottom: 20px;">Pending Blood Requests Matching Your Blood Group</h3>
+            
+            {% if requests %}
+                <div class="request-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Blood Group</th>
+                                <th>Quantity (bags)</th>
+                                <th>Location</th>
+                                <th>Hospital</th>
+                                <th>Urgency</th>
+                                <th>Request Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {% for request in requests %}
+                            <tr>
+                                <td><strong>{{ request.name }}</strong></td>
+                                <td><span class="badge" style="background: #6c757d; color: white;">{{ request.bldgrp }}</span></td>
+                                <td>{{ request.bloodbag }} bags</td>
+                                <td>{{ request.division }}, {{ request.district }}</td>
+                                <td>{{ request.hlocation }}</td>
+                                <td>
+                                   {% if request.urgency == 'asap' %}
+                                        <span class="badge badge-urgent">Emergency</span>
+                                    {% else %}
+                                        <span class="badge badge-normal">Normal</span>
+                                    {% endif %}
+
+
+                                </td> 
+                                <td>{{ request.request_at|date:"d M Y" }}</td>
+                                <td><a href="{% url 'Respond' request.id %}">Respond To Donate</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="no-requests">
+                    <h3>No pending requests matching your blood group at the moment.</h3>
+                    <p>Check back later or update your availability status.</p>
+                </div>
+            {% endif %}
+        
+    </div>  
+      
+ </body>
+ </html>
+ 
+ 
+ 
+ 
+ 

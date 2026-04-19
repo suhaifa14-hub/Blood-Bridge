@@ -1,0 +1,173 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7cbcb;
+  margin: 10;
+  padding: 0;
+}
+  /* NAVBAR */
+    .navbar {
+        background-color: white;
+        padding: 16px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 3px solid #e63946;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        }
+
+      
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e63946;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #2d2d2d;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d2d2d;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #e63946;
+            color: white;
+        }
+
+        .nav-links .active-link {
+            background-color: #e63946;
+            color: white;
+        }
+
+.container {
+  max-width:50%;
+  background: #fff;
+  padding: 20px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(14, 197, 154, 0.1);
+
+
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #f65a5a;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ee8b8b;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 20px;
+  width: 90%;
+  padding: 10px;
+  background: #f60c082a;
+  color: #500505;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  
+}
+
+button:hover {
+  background: #ea0d0d;
+
+}
+
+/* Health checkbox group styling */
+.health-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.health-checkboxes label {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.health-checkboxes input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.1); /* checkboxes slightly bigger */
+}
+
+#current-division, #current-district {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ee8b8b;
+  box-sizing: border-box;
+}
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* space between yes & no */
+  margin-top: 5px;
+}
+
+.radio-group label {
+  font-weight: normal;
+  color: #333;
+  margin-right: 10px;
+}
+
+.radio-group input[type="radio"] {
+  width: auto;
+  margin-right: 5px;
+  transform: scale(1.1);
+}
+
+  /* FOOTER */
+   footer {
+            background-color: #2d2d2d;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 22px;
+            font-size: 0.82rem;
+        }
+
+    footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+    footer a:hover {
+            color: white;
+        }

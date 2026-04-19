@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donor Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/donor.css' %}">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h2>Welcome, {{ user.username }}!</h2>
+            <a href="{% url 'UserLogout' %}">Logout</a>
+            
+            {% if donor_info %}
+            <a href="{% url 'PendingRequests' donor_info.id %}">Pending Requests</a>
+            {% endif %}
+        </div>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+        <div class="infos">
+            <h3>Your Donor Profile</h3>
+            
+            {% if donor_info %}
+            <div class="card">
+                <p><strong>Full Name:</strong> {{ donor_info.fullname }}</p>
+                <p><strong>Age:</strong> {{ donor_info.age }}</p>
+                <p><strong>Blood Group:</strong> {{ donor_info.bldgrp }}</p>
+                <p><strong>Phone:</strong> {{ donor_info.phone }}</p>
+                <p><strong>Email:</strong> {{ donor_info.email }}</p>
+                <p><strong>Location:</strong> {{ donor_info.division }}, {{ donor_info.district }}</p>
+                <p><strong>Last Donation:</strong> {{ donor_info.donation_date }}</p>
+                <p><strong>Medical Conditions:</strong></p>
+                <div class="medical-conditions">
+                   
+                    {% if donor_info.hypertension %}<span class="condition-tag">Hypertension</span>
+                    {% else %}
+                     No specific medical condition 
+                     {%endif%}
+
+                   
+                   
+                    
+                </div>
+               
+            </div>
+            {% else %}
+            <p>You haven't created a donor profile yet.</p>
+            <a href="{% url 'Registrationform' %}" class="btn">Create Donor Profile</a>
+            {% endif %}
+        </div>
+    </div>
+     
+</body>
+</html>

@@ -1,0 +1,288 @@
+/*.A1{
+    margin: 20px;
+}
+
+#A2{
+    list-style-type: none;
+    margin: 50px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#A2 li a{
+    text-decoration:none ;
+    text-align: center;
+    font-size:150%;
+    color: rgb(109, 24, 24);
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+    display: block;
+    
+}
+
+#A2 li a:hover{
+  transform: translateY(-5px);
+  color:rgb(233, 217, 217);
+  
+}
+
+#A2 li{
+    max-width: 400px;
+    width: 100%;
+    margin:10px ;
+    border: 20px solid rgb(239, 74, 49) ;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(239, 74, 49);
+    font-size:medium ;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    font-style: normal ;
+    align-items: center;
+    justify-content: center;
+
+}
+.messages {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 80%;
+    max-width: 500px;
+}
+
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+body{
+  
+  background-repeat: no-repeat;
+  background-position:center;
+  background-attachment: fixed;
+  background-size:cover;
+  align-items: center;
+  justify-content: center;
+  background-image: 
+     linear-gradient(to bottom, rgba(220, 53, 69, 0.08), rgba(250, 248, 248, 0.9)),           
+     url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23ffffff"/><path d="M30,30 Q50,10 70,30 T90,50 Q70,70 50,90 T30,70 Q10,50 30,30 Z" fill="%23dc3545" opacity="0.08"/></svg>');
+}*/
+ 
+
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f5;
+            color: #2d2d2d;
+        }
+
+        
+        .navbar {
+            background-color: white;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid #e63946;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e63946;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #2d2d2d;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d2d2d;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #e63946;
+            color: white;
+        }
+
+        .nav-links .active-link {
+            background-color: #e63946;
+            color: white;
+        }
+
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            display: block;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 span {
+            color: #e63946;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto 14px;
+            line-height: 1.7;
+        }
+
+        
+        .cards-section {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding: 30px 40px 80px;
+        }
+
+        .card {
+            background-color: white;
+            border: 2px solid #f0c0c0;
+            border-radius: 16px;
+            padding: 36px 28px;
+            width: 230px;
+            text-align: center;
+            text-decoration: none;
+            color: #2d2d2d;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(230, 57, 70, 0.18);
+            border-color: #e63946;
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #e63946;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.82rem;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        
+        .stats-bar {
+            background-color: #e63946;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        
+        footer {
+            background-color: #2d2d2d;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 22px;
+            font-size: 0.82rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+    

@@ -1,0 +1,211 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3c1c1;
+    min-height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(220, 53, 69, 0.08), rgba(250, 248, 248, 0.9));
+}
+ 
+    .navbar {
+        background-color: white;
+        padding: 16px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 3px solid #e63946;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        }
+
+      
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e63946;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #2d2d2d;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d2d2d;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #e63946;
+            color: white;
+        }
+
+        .nav-links .active-link {
+            background-color: #e63946;
+            color: white;
+        }
+
+.page-center {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto; /* center */
+    padding: 10px;
+}
+ .nav-links
+  {
+   list-style: none;
+   display: flex;
+   gap: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d2d2d;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #e63946;
+            color: white;
+        }
+
+        .nav-links .active-link {
+            background-color: #e63946;
+            color: white;
+        }
+.container {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px; /* nicer */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #d32f2f;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Unified styling for all input fields, selects, and datetime inputs */
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ec9587;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: white;
+    height: 40px; /* Consistent height for all fields */
+}
+
+/* Remove default select styling for consistency */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ec9587' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px; /* Space for the custom arrow */
+}
+
+/* Style for the custom time section */
+#customtime {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+#customtime div {
+    margin: 10px 0;
+}
+
+#customtime label {
+    display: inline-block;
+    width: 80px;
+    margin-top: 0;
+}
+
+.center-button {
+    text-align: center;
+    padding: 20px;
+}
+
+#searchbtn {
+    background-color: #d32f2f;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    color: white;
+    
+    display: block;
+    margin: 0 auto;
+
+}
+
+#searchbtn:hover {
+    background-color: #b71c1c;
+}
+
+/* Optional: Add focus styles for better user experience */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="datetime-local"]:focus,
+select:focus {
+    outline: none;
+    border-color: #d32f2f;
+    box-shadow: 0 0 5px rgba(211, 47, 47, 0.3);
+}
+
+   footer {
+            background-color: #2d2d2d;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 22px;
+            font-size: 0.82rem;
+        }
+
+    footer a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+    footer a:hover {
+            color: white;
+        }

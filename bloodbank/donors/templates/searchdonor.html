@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eligible donor</title>
+    <link rel="stylesheet" href="{% static 'donors/css/search.css' %}">
+</head>
+<body>
+    <div class="container">
+        
+         {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        
+       
+        <div class="donors-list">
+            <h3>Eligible-Donors</h3>
+            {% if edonor%}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Blood Group</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Location</th>
+                        <th>Present Address</th>
+                        <th>Nearest Hospital Location</th>
+                        <th>Last Donated Blood</th>
+                        <th>Disease History</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                     {% for donor in edonor %}
+                        <tr>
+                        <td>{{ donor.fullname }}</td>
+                        <td>{{ donor.bldgrp }}</td>
+                        <td>{{ donor.email }}</td>
+                        <td>{{ donor.phone }}</td>
+                        <td>{{ donor.division}}, {{donor.district}}</td>
+                        <td>{{ donor.address}}</td>
+                        <td>{{ donor.h_address}}</td>
+                        <td>{{donor.donation_date}}</td>
+                        <td>
+                            {% if donor.hypertension %}
+                               Hypertension
+
+                            {% else %}
+                                
+                                
+                                No specific medical condition
+                                
+                           {% endif %} 
+                         
+        
+
+                        </td>
+                        
+                        </tr>
+                      {% endfor %}
+                </tbody>
+            
+            </table>
+            
+
+            {%else%}
+                <p>There is no Eligible Donor!</p>
+            {%endif%}
+        </div>
+    </div>
+    
+</body>
+</html>
