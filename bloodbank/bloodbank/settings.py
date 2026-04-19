@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=aa5u9e4v^%8sor%w88y0e8062v57mi^%#tc+vzl1r$-ehk$4s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blood-bridge-production-0e46.up.railway.app']
 
 
 # Application definition
