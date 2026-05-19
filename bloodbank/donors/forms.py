@@ -36,13 +36,13 @@ class Donorform(UserCreationForm):
     def save(self, commit=True):
         
         user = super().save(commit=True) 
-        #user.email = self.cleaned_data['email']
+        
         
         
             
            
         donor_bio = donor.objects.create(
-                user=user,  # This links to the User model
+                user=user,  
                 fullname=self.cleaned_data['fullname'],
                 age=self.cleaned_data['age'],
                 weight=self.cleaned_data['weight'],

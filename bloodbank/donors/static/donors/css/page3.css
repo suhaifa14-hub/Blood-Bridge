@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -6,7 +6,7 @@ body{
     min-height: 100vh;
     background-image: linear-gradient(to bottom, rgba(220, 53, 69, 0.08), rgba(250, 248, 248, 0.9));
 }
- 
+  /* NAVBAR */
     .navbar {
         background-color: white;
         padding: 16px 40px;
@@ -59,7 +59,7 @@ body{
 
 .page-center {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     margin: 30px auto; /* center */
     padding: 10px;
 }

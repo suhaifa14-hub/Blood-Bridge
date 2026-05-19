@@ -8,7 +8,7 @@ from django.contrib import messages
 from donors.models import donor,searchdonor
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.models import User
-from django.contrib.auth import update_session_auth_hash
+
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, redirect
 
@@ -82,6 +82,7 @@ def delete_donor(request, donor_id):
     if donor.objects.filter(id=donor_id).exists():
         donor_bio= donor.objects.get(id=donor_id)
         user=donor_bio.user
+        
 
         user.delete()
         messages.success(request, 'Donor Deleted Successfully!')

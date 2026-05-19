@@ -7,9 +7,6 @@ class donor(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE , null=True , blank=True , related_name= 'donor_bio')
     
     
-   
-    
-    
     fullname = models.CharField(max_length=100)
     age=models.IntegerField(null=True, blank=True, default=18)
     weight=models.IntegerField(null=True, blank=True, default=0)
