@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-=aa5u9e4v^%8sor%w88y0e8062v57mi^%#tc+vzl1r$-ehk$4s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['blood-bridge-production-0e46.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    "https://blood-bridge-production-0e46.up.railway.app",
+]
 
 # Application definition
 
@@ -58,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'bloodbank.urls'
@@ -126,3 +129,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
