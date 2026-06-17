@@ -11,7 +11,10 @@ urlpatterns = [
     path('delete-donor/<int:donor_id>', views.delete_donor , name='DeleteDonor'),
     path('search-request', views.searchreq, name='SearchRequest'),
     path('delete-request/<int:search_id>', views.delrequest, name='DeleteRequest'),
-    path('pending-request/<int:donor_id>', views.p_request, name='PendingRequests'),
+     path('delete-request_p/<int:search_id>', views.delrequest_p, name='DeleteRequestP'),
+    
+    path('pending-request', views.p_request, name='PendingRequests'),
+   
     path('responding/<int:request_id>', views.respond, name='Respond'),
     
 

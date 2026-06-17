@@ -64,16 +64,16 @@
                 </tbody>
             
             </table>
-            <div class="location">
-            <p>Search based on location</p>
-             <a href="{% url 'LocationForm' %}?bldgrp={{sbldgrp}}&num={{snum}}" class="btn-location">
-                    Search by Location
-                </a>
+           
             </div>
 
             {%else%}
                 <p>There is no Eligible Donor!</p>
             {%endif%}
+             <div class="back-links">
+                <a href="{% url 'LocationForm' %}?bldgrp={{sbldgrp}}&num={{snum}}">← Search a Different Location</a>
+                <a href="{% url 'Requestpage' %}">← Search a Different Bloodgroup</a>
+            </div>
         </div>
     </div>
     

@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import date, timedelta
 
 from django.utils import  timezone
 
@@ -72,9 +72,15 @@ def donordash(request) :
         donor_info = donor.objects.filter(user=request.user).first()
     except:
         donor_info = None
+    real_age=None
+    if donor_info and donor_info.age:
+        td=date.today() 
+        dob=donor_info.age
+        real_age=td.year-dob.year-((td.month,td.day)<(dob.month,dob.day))   
     
     return render(request, 'donordash.html', {
-        'donor_info': donor_info
+        'donor_info': donor_info,
+        'age':real_age
     })
 
 
@@ -102,16 +108,23 @@ def delrequest(request , search_id):
         return redirect('SearchRequest')
      else:
         messages.error(request, 'Request not Found!')
+def delrequest_p(request , search_id):
+     if searchdonor.objects.filter(id=search_id).exists():
+        search= searchdonor.objects.get(id=search_id)
+        search.delete()
+        messages.success(request, 'Request Deleted Successfully!')
+        return redirect('DonorDashboard')
+     else:
+        messages.error(request, 'Request not Found!')
 
-     return redirect('Admin Dashboard')
-def p_request(request , donor_id):
-    if donor.objects.filter(id=donor_id).exists():              
-        d_profile=donor.objects.get(id=donor_id)
-        requests=searchdonor.objects.filter(bldgrp=d_profile.bldgrp , accepted=False)
+     return redirect('AdminDashboard')
+def p_request(request ):
+                
+        d_profile=request.user.donor_bio
+        requests=searchdonor.objects.filter(bldgrp=d_profile.bldgrp , accepted=False ).order_by('-id')
         return render(request , 'pending.html', {'requests': requests})
-    else:
-        messages.error(request, 'Donor not found!')
-        return redirect('UserLogin') 
+   
+   
 def  respond(request, request_id) :
     blood_request = get_object_or_404(searchdonor, id=request_id)
     donor_bio = request.user.donor_bio  # the logged in donor

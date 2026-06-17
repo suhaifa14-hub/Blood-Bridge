@@ -20,7 +20,7 @@
         </ul>
   </nav>
   <form action="{% url 'DonorList'%}" method="POST">
-
+   {% csrf_token %}
   <div class="page-center">
 
     <div class="container">
@@ -38,13 +38,14 @@
       </select>
     </div>
 
-     
-
+    <div class="container">
+    <input type="tel" id="num" name="num" placeholder="Enter your contact number" required>
+     </div>
     
 
     
     <div class="container center-button">
-   <a href="newPage-3-2.html" id="searchbtn">Search Donors</a>
+   <button id ="searchbtn">Search Donors</button>
     </div>
 
  </form>
@@ -57,5 +58,6 @@
     <footer>
         <p>© 2026 LifeFlow Blood Donation &nbsp;·&nbsp; <a href="awareness">Why Donate?</a> &nbsp;·&nbsp; <a href="register">Donate Now</a></p>
     </footer>
+    <script src="{%static 'donors/css/page3.js'%}?v=2"></script>
 </body>
 </html>

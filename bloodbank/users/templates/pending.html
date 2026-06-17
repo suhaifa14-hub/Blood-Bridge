@@ -15,36 +15,30 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Patient Name</th>
+                               
                                 <th>Blood Group</th>
-                                <th>Quantity (bags)</th>
+                               
                                 <th>Location</th>
-                                <th>Hospital</th>
-                                <th>Urgency</th>
-                                <th>Request Date</th>
-                                <th>Actions</th>
+                                
+                                <th>Contact Number</th>
+                                
+                                <th>Respond</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             
                             {% for request in requests %}
                             <tr>
-                                <td><strong>{{ request.name }}</strong></td>
+                               
                                 <td><span class="badge" style="background: #6c757d; color: white;">{{ request.bldgrp }}</span></td>
-                                <td>{{ request.bloodbag }} bags</td>
-                                <td>{{ request.division }}, {{ request.district }}</td>
-                                <td>{{ request.hlocation }}</td>
-                                <td>
-                                   {% if request.urgency == 'asap' %}
-                                        <span class="badge badge-urgent">Emergency</span>
-                                    {% else %}
-                                        <span class="badge badge-normal">Normal</span>
-                                    {% endif %}
-
-
-                                </td> 
-                                <td>{{ request.request_at|date:"d M Y" }}</td>
+                               
+                                <td>{{request.division}}, {{request.district}}</td>
+                                <td>{{request.num}}</td>
+                                
+                                
                                 <td><a href="{% url 'Respond' request.id %}">Respond To Donate</a></td>
+                                 <td><a href="{% url 'DeleteRequestP' request.id %}">Delete</a></td>
                             </tr>
                             {% endfor %}
                         </tbody>

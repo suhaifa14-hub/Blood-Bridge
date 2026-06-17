@@ -6,6 +6,10 @@ urlpatterns = [
     path('register', views.reg, name="RegisterForm"),
     path('request', views.req, name='Requestpage'),
     path('regdonor', views.regdonor, name='Registrationform'),
+    path('location', views.location_search, name='LocationForm'),
     path('donorlist', views.donorlist, name='DonorList'),
-    path('awareness', views.why, name='Awareness')
+    path('d_list_l', views.d_list_location, name='D_List_location'),
+    path('awareness', views.why, name='Awareness'),
+    path('editprofile', views.editprofile, name='EditProfile'),
+
 ]

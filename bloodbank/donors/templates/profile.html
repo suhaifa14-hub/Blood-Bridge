@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="{% static 'donors/css/profile.css' %}?v=2">
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="awareness">Why Donate?</a></li>
+      <li><a href="register">Donate</a></li>
+      <li><a href="request">Find Blood</a></li>
+      <li><a href="userlogin">My Account</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Edit Your Profile</h2>
+
+    <form action="{% url 'EditProfile' %}" method="POST">
+      {% csrf_token %}
+
+      {% if form.errors %}
+        <div class="alert alert-danger">
+          <strong>Please correct the errors below:</strong>
+          <ul>
+            {% for field in form %}
+              {% if field.errors %}
+                <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" value="{{ request.user.username }}" placeholder="Choose a username" required>
+
+      <label for="new_password1">New Password <span style="font-weight:normal; font-size:0.9em;">(leave blank to keep current)</span></label>
+      <input type="password" id="new_password1" name="new_password1" placeholder="Enter new password">
+
+      <label for="new_password2">Confirm New Password</label>
+      <input type="password" id="new_password2" name="new_password2" placeholder="Confirm new password">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" value="{{ donor_bio.email }}" placeholder="Enter your email">
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" value="{{ donor_bio.phone }}" placeholder="Enter your phone number" required>
+
+      <label>Current Address</label>
+
+      <select id="current-division" onchange="loadCurrentDistricts()" name="division" required>
+        <option value=""> Select Division </option>
+        <option value="dhaka" {% if donor_bio.division == "dhaka" %}selected{% endif %}>Dhaka</option>
+        <option value="chattogram" {% if donor_bio.division == "chattogram" %}selected{% endif %}>Chattogram</option>
+        <option value="rajshahi" {% if donor_bio.division == "rajshahi" %}selected{% endif %}>Rajshahi</option>
+        <option value="khulna" {% if donor_bio.division == "khulna" %}selected{% endif %}>Khulna</option>
+        <option value="barishal" {% if donor_bio.division == "barishal" %}selected{% endif %}>Barishal</option>
+        <option value="sylhet" {% if donor_bio.division == "sylhet" %}selected{% endif %}>Sylhet</option>
+        <option value="rangpur" {% if donor_bio.division == "rangpur" %}selected{% endif %}>Rangpur</option>
+        <option value="mymensingh" {% if donor_bio.division == "mymensingh" %}selected{% endif %}>Mymensingh</option>
+      </select>
+
+      <select id="current-district" name="district" required>
+        <option value="{{ donor_bio.district }}">{{ donor_bio.district }}</option>
+      </select>
+
+      <input type="text" id="upazila" name="upazila" value="{{ donor_bio.upazila }}" placeholder="Enter Upazila / Thana" required>
+      <input type="text" id="area" name="area" value="{{ donor_bio.area }}" placeholder="Village / Road / Block / Area" required>
+      <input type="text" id="postcode" name="postcode" value="{{ donor_bio.postcode }}" placeholder="Post Code">
+
+      
+      <label>Did you donate blood before?</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="donated_before" value="yes"
+            {% if donor_bio.donation_date %}checked{% endif %}
+            onclick="toggleDate(true)"> Yes
+        </label>
+        <label>
+          <input type="radio" name="donated_before" value="no"
+            {% if not donor_bio.donation_date %}checked{% endif %}
+            onclick="toggleDate(false)"> No
+        </label>
+      </div>
+
+      <br><br>
+
+      <div id="dateField" style="display: {% if donor_bio.donation_date %}block{% else %}none{% endif %};">
+        <label for="donation_date">Last Blood Donation Date</label>
+        <input type="date" id="donation_date" name="donation_date"
+          value="{% if donor_bio.donation_date %}{{ donor_bio.donation_date|date:'Y-m-d' }}{% endif %}">
+      </div>
+
+      <!-- Health Update -->
+      <label>Health Update (Select all that apply):</label>
+      <div class="health-checkboxes">
+        <label><input type="checkbox" name="hiv" value="hiv" {% if donor_bio.hiv %}checked{% endif %}> HIV (Currently affected or has a history)</label>
+        <label><input type="checkbox" name="hep" value="hep" {% if donor_bio.hep %}checked{% endif %}> Hepatitis(B/C) (Currently affected or has a history)</label>
+        <label><input type="checkbox" name="hypertension" value="hypertension" {% if donor_bio.hypertension %}checked{% endif %}> Hypertension (High BP)</label>
+        <label><input type="checkbox" name="no_disease" value="no_disease" {% if donor_bio.no_disease %}checked{% endif %}> None</label>
+      </div>
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2026 Blood Bridge &nbsp;·&nbsp; <a href="awareness">Why Donate?</a> &nbsp;·&nbsp; <a href="register">Donate Now</a></p>
+  </footer>
+<script src="{%static 'donors/css/profile.js'%}?v=2">
+  
+</script>
+ 
+</body>
+</html>

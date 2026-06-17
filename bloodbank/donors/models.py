@@ -8,13 +8,8 @@ class donor(models.Model):
     
     
     fullname = models.CharField(max_length=100)
-    age=models.IntegerField(null=True, blank=True, default=18)
-    weight=models.IntegerField(null=True, blank=True, default=0)
-    gender=models.CharField(max_length=15, default='' ,choices=[
-       ('male','Male'),
-       ('female','Female'),
-       ('other','Other')
-       ])
+    age=models.DateField(null=True, blank=True)
+    
     email = models.EmailField(null=True , unique=True , default='')
     phone = models.CharField(max_length=15,unique=True)
     bldgrp = models.CharField(max_length=3, choices=[
@@ -38,7 +33,10 @@ class donor(models.Model):
         ( 'mymensingh','Mymensingh'),
     ])
     district = models.CharField(max_length=50)
-    address=models.CharField(max_length=300 , default='')
+    upazila=models.CharField(max_length=50,null=True)
+    area=models.CharField(max_length=50,null=True)
+    postcode=models.CharField(max_length=50,null=True)
+    
     h_address=models.CharField(max_length=200, default='')
     donation_date = models.DateField(null=True, blank=True)
     
@@ -60,8 +58,8 @@ class donor(models.Model):
     
 class searchdonor(models.Model):
      
-     name = models.CharField(max_length=100)
-     bloodbag=models.IntegerField(null=True, blank=True, default=1)
+     
+     
      num=models.CharField(max_length=11, unique=True , null=True , blank=True)
      bldgrp = models.CharField(max_length=3, choices=[
         ('A+', 'A+'),
@@ -87,15 +85,13 @@ class searchdonor(models.Model):
     ])
      district = models.CharField(max_length=50)
      accepted=models.BooleanField(default=False)
-     hlocation=models.CharField(max_length=150, default='')
-     urgency = models.CharField(max_length=30,null=True, choices=[
-        ( 'asap','Emergency'),
-        ( 'custom','Non-urgent'),
+    
+    
        
-    ])
-     request_at=models.DateField(null=True)
+    
+     
      def __str__(self):
-        return f"{self.name}  {self.bldgrp}  {self.bloodbag} "
+        return f"{self.bldgrp} | {self.division} | {self.num}"
 
 
 
